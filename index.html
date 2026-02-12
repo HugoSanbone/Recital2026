@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hugo Sanbone Jazz Recital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #02040a;
+      --bg-alt: #050814;
+      --accent: #00a7e0;
+      --accent-soft: rgba(0, 167, 224, 0.2);
+      --text-main: #f5f7fb;
+      --text-muted: #a3b0c7;
+      --border-subtle: #1a2234;
+      --font-heading: "Oswald", system-ui, -apple-system, sans-serif;
+      --font-body: "Open Sans", system-ui, -apple-system, sans-serif;
+      --radius-lg: 14px;
+      --radius-md: 9px;
+      --shadow-soft: 0 22px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #061020 0, #010308 55%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    main { max-width: 1040px; width: 100%; }
+
+    .shell {
+      width: 100%;
+      background: var(--bg-alt);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 3.2fr 2.3fr;
+    }
+
+    .content {
+      padding: 32px 34px 30px 30px;
+      border-right: 1px solid var(--border-subtle);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.03), transparent 40%),
+        radial-gradient(circle at 0 0, rgba(0,167,224,0.28), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0,0,0,0.9), transparent 55%);
+    }
+
+    .logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; font-family: var(--font-heading); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); }
+    .logo-mark { width: 22px; height: 22px; border-radius: 999px; background: var(--accent); }
+    .flag { padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); background: rgba(0,0,0,0.7); }
+
+    h1.title { font-family: var(--font-heading); font-size: 34px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; margin-bottom: 4px; }
+    .subtitle { font-family: var(--font-heading); font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+
+    .meta-row { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1.4fr); gap: 18px; padding: 14px 16px; border-radius: var(--radius-md); background: rgba(2,4,12,0.9); border: 1px solid rgba(255,255,255,0.06); font-size: 13px; margin-bottom: 22px; }
+    .meta-label { font-family: var(--font-heading); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .meta-value { line-height: 1.5; }
+    .meta-strong { color: var(--accent); font-weight: 600; }
+
+    .description { font-size: 14px; line-height: 1.7; color: var(--text-muted); max-width: 38rem; }
+    .description p + p { margin-top: 10px; }
+
+    .program { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px 26px; font-size: 13px; }
+    .program h2 { font-family: var(--font-heading); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+
+    .tagline { margin-top: 18px; font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
+    .pills { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 9px; font-size: 11px; }
+    .pill { padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: rgba(0,0,0,0.86); letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-heading); }
+    .pill--accent { border-color: var(--accent-soft); background: radial-gradient(circle at 0 0, var(--accent-soft), rgba(0,0,0,0.9)); color: var(--accent); }
+
+    /* AUDIO BUTTON STYLE */
+    .audio-control {
+      margin: 20px 0;
+    }
+
+    .audio-button {
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,0.85);
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .audio-button:hover {
+      border-color: var(--accent);
+      background: rgba(0,167,224,0.1);
+    }
+
+    .audio-button-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .side { padding: 24px 24px 20px; background:
+      radial-gradient(circle at 10% 0, rgba(255,255,255,0.16), transparent 55%),
+      radial-gradient(circle at 90% 100%, rgba(0,167,224,0.5), transparent 55%),
+      #010308;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .side-tag { position: absolute; top: 18px; right: 20px; padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.72); font-family: var(--font-heading); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+
+    .photo-frame { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 20px 40px rgba(0,0,0,0.9); aspect-ratio: 4 / 5; background: #000; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .side-footer { margin-top: 18px; font-size: 11px; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px; }
+    .side-footer strong { color: var(--accent); font-weight: 600; }
+    .live-row { margin-top: 6px; display: flex; align-items: center; gap: 8px; letter-spacing: 0.18em; text-transform: uppercase; font-family: var(--font-heading); }
+    .dot-live { width: 8px; height: 8px; border-radius: 999px; background: #3fd58f; box-shadow: 0 0 0 6px rgba(63,213,143,0.2); }
+
+    @media (max-width: 880px) { .shell { grid-template-columns: 1fr; } .content { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
+    @media (max-width: 560px) { body { padding: 20px 10px; } .shell { border-radius: 14px; } .content { padding: 22px 20px 18px; } .side { padding: 20px; } .meta-row { grid-template-columns: 1fr; } .program { grid-template-columns: 1fr; } h1.title { font-size: 26px; } }
+  </style>
+</head>
+<body>
+
+  <!-- AUDIO ELEMENT -->
+  <audio id="bgAudio" src="Uncle.mp4" loop></audio>
+
+  <main aria-label="Hugo Sanbone Jazz Recital">
+    <section class="shell">
+
+      <!-- Left: Text Content -->
+      <section class="content">
+        <div class="logo-row">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <span>Hugo Sanbone</span>
+          <span class="flag">Jazz recital</span>
+        </div>
+
+        <h1 class="title">The Master's Recital of Hugo Sanbone</h1>
+        <p class="subtitle">Original works for small ensemble & big band</p>
+
+        <div class="meta-row">
+          <div>
+
+            <!-- FONTE SIZE -->
+
+            <div class="meta-label">Date & time</div>
+            <div class="meta-value">
+              Saturday, April 4, 2026<br>
+              <span class="meta-strong">2:00 PM – 3:30 PM</span>
+            </div>
+          </div>
+          <div>
+            <div class="meta-label">Venue</div>
+            <div class="meta-value">
+              Black Box Theater, Sorenson Unity Center<br>
+              1383 S 900 W<br>
+              Salt Lake City, UT 84104
+            </div>
+          </div>
+        </div>
+
+        <!-- AUDIO BUTTON -->
+        <div class="audio-control">
+          <button id="audioToggle" class="audio-button" type="button">
+            ▶ Play Audio
+          </button>
+        </div>
+
+        <div class="description">
+          <div class="description" style="text-align: justify;">
+          <p>This Master’s recital features original compositions and arrangements for a range of ensemble formats, from intimate chamber settings to full jazz big band.</p>
+          <p>Part one highlights small ensembles in duo, quartet, and sextet configurations performing original compositions. Part two unfolds with original jazz big band works influenced by jazz, blues, and Brazilian jazz traditions within contemporary practice.</p>
+          <p>This Master’s recital is presented with the support of the Black Box Theater, Salt Lake City. The artist gratefully acknowledges the UMass Jazz Department for its approval and academic support of this remote performance.</p>
+        </div>
+
+        <section class="program">
+          <div>
+            <h2>Part I · Small ensembles</h2>
+            <p>Duo, quartet, and sextet pieces emphasizing melodic dialogue, rhythmic interplay, and close‑up improvisation.</p>
+          </div>
+          <div>
+            <h2>Part II · Big band</h2>
+            <p>Original large‑ensemble charts drawing on swing, blues inflection, and Brazilian rhythmic vocabulary for a modern big band sound.</p>
+          </div>
+        </section>
+
+        <p class="tagline">Admission is free and open to the public.</p>
+
+        <div class="pills">
+          <span class="pill pill--accent">Free admission</span>
+          <span class="pill">All ages welcome</span>
+          <span class="pill">General seating</span>
+          <div class="pills">
+   
+        <!-- Add program link -->
+      <a href="program.html" class="pill pill--accent">View Full Program</a>
+       </div>
+
+     
+      </section>
+
+      <!-- Right: Photo & Presenter Info -->
+      <aside class="side">
+       <div class="side-tag" style="font-size:15px;">Live · April 4</div>
+
+        <figure class="photo-frame">
+          <img src="HugoSanbone.png" alt="Hugo Sanbone performing on trombone">
+        </figure>
+        <div class="side-footer">
+          <div><strong>Presented by</strong></div>
+          <div>Youth and Family Division, Sorenson Unity Center</div>
+
+          <!-- Support Logos -->
+          <div class="support-logos" style="margin-top:10px; display:flex; gap:12px; align-items:center;">
+            <img src="UMass.png" alt="UMass Amherst Logo" style="height:110px;">
+            <img src="SaltLakeLogo.png" alt="Black Box Theater Logo" style="height:110px;">
+          </div>
+
+          <div class="live-row">
+            <span class="dot-live" aria-hidden="true"></span>
+            <span>No tickets required · Doors open 1:30 PM</span>
+          </div>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+
+  <!-- AUDIO BUTTON SCRIPT -->
+  <script>
+    const audio = document.getElementById('bgAudio');
+    const toggleBtn = document.getElementById('audioToggle');
+    let isPlaying = false;
+
+    toggleBtn.addEventListener('click', () => {
+      if(isPlaying) {
+        audio.pause();
+        toggleBtn.textContent = '▶ Play Audio';
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          toggleBtn.textContent = '⏸ Pause Audio';
+          isPlaying = true;
+        }).catch(err => {
+          console.error('Audio failed to play:', err);
+        });
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>
