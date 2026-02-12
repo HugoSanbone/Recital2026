@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hugo Sanbone Jazz Recital · Program</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fonts: Oswald + Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #02040a;
+      --bg-alt: #050814;
+      --accent: #00a7e0;
+      --accent-soft: rgba(0, 167, 224, 0.2);
+      --text-main: #f5f7fb;
+      --text-muted: #a3b0c7;
+      --border-subtle: #1a2234;
+      --font-heading: "Oswald", system-ui, -apple-system, sans-serif;
+      --font-body: "Open Sans", system-ui, -apple-system, sans-serif;
+      --radius-lg: 14px;
+      --radius-md: 9px;
+      --shadow-soft: 0 22px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #061020 0, #010308 55%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    main { max-width: 1040px; width: 100%; }
+
+    .shell {
+      width: 100%;
+      background: var(--bg-alt);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 3.2fr 2.3fr;
+    }
+
+    .content {
+      padding: 32px 34px 30px 30px;
+      border-right: 1px solid var(--border-subtle);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.03), transparent 40%),
+        radial-gradient(circle at 0 0, rgba(0,167,224,0.28), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0,0,0,0.9), transparent 55%);
+    }
+
+    h1.title { font-family: var(--font-heading); font-size: 34px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; margin-bottom: 10px; }
+    .subtitle { font-family: var(--font-heading); font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      letter-spacing: 0.18em;
+    }
+
+    .section-list {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .tagline { margin-top: 18px; font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
+    .pills { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 9px; font-size: 11px; }
+    .pill { padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: rgba(0,0,0,0.86); letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-heading); }
+    .pill--accent { border-color: var(--accent-soft); background: radial-gradient(circle at 0 0, var(--accent-soft), rgba(0,0,0,0.9)); color: var(--accent); }
+
+    .side { padding: 24px 24px 20px; background:
+      radial-gradient(circle at 10% 0, rgba(255,255,255,0.16), transparent 55%),
+      radial-gradient(circle at 90% 100%, rgba(0,167,224,0.5), transparent 55%),
+      #010308;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .photo-frame { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 20px 40px rgba(0,0,0,0.9); aspect-ratio: 4 / 5; background: #000; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .side-footer { margin-top: 18px; font-size: 11px; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px; }
+    .side-footer strong { color: var(--accent); font-weight: 600; }
+    .logos { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .logos img { max-width: 100px; height: auto; border-radius: 4px; }
+
+    @media (max-width: 880px) { .shell { grid-template-columns: 1fr; } .content { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
+    @media (max-width: 560px) { body { padding: 20px 10px; } .shell { border-radius: 14px; } .content { padding: 22px 20px 18px; } .side { padding: 20px; } h1.title { font-size: 26px; } }
+  </style>
+</head>
+<body>
+
+    
+  <main aria-label="Hugo Sanbone Jazz Recital Program">
+    <section class="shell">
+
+      <!-- Left: Program Content -->
+      <section class="content">
+        <h1 class="title">Hugo Sanbone</h1>
+        <p class="subtitle">Master’s Recital · Program</p>
+
+
+      <!-- PERSONEL BIG BAND-->
+
+        <div class="section-title">Personnel · Jazz Big Band</div>
+        <div class="section-list">
+          <strong>Trumpets:</strong> Trumpet 1, Trumpet 2, Trumpet 3, Trumpet 4<br>
+          <strong>Trombones:</strong> Trombone 1, Trombone 2, Trombone 3, Trombone 4<br>
+          <strong>Reeds:</strong> Alto Sax 1, Alto Sax 2, Tenor Sax 1, Tenor Sax 2, Baritone Sax<br>
+          <strong>Rhythm Section:</strong> Piano, Guitar, Bass, Drums, Percussion
+        </div>
+      <!-- PERSONEL SMALL ENSEMBLE-->
+        <div class="section-title">Duo . Trio . Sextet </div>
+        <div class="section-list">
+          <strong>Duo . Drums & Trombone:</strong>
+         <strong>Trio . Guitar, Drums & Trombone:</strong>
+          <strong>Sextet . Guitar, Bass, Trumpet, Saxophone, Drums & Trombone:</strong>
+
+
+        <div class="section-title">Repertoire</div>
+        <div class="section-list">
+          <ol>
+            <li>Original Composition 1 – Small Ensemble</li>
+            <li>Original Composition 2 – Small Ensemble</li>
+            <li>Original Big Band  1</li>
+            <li>Original Big Band  2</li>
+            <li>Original Big Band  3</li>
+            <li>Original Big Band  4</li>
+            <li>Original Big Band  5</li>
+            <li>Original Big Band  6</li>
+          </ol>
+        </div>
+
+        <div class="section-title">Additional Notes</div>
+        <div class="section-list">
+          Program subject to change.<br>
+          Special thanks to the UMass Jazz Department and Black Box Theater for support.
+        </div>
+
+
+        <div class="pills">
+          <a href="index.html" class="pill pill--accent">Back to Recital Info</a>
+        </div>
+      </section>
+
+      
+  </main>
+
+</body>
+</html>
